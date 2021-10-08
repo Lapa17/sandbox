@@ -2,11 +2,22 @@
 let arr = [];
 let sizeOfArray = prompt("Введите размер массива")
 
+while (sizeOfArray <= 0){
+  sizeOfArray = prompt("Вы ничего не ввели, введите размер массива")
+  if (sizeOfArray === null){
+    console.log('Нажата кнопка отмены ввода размер массива')
+    break;
+  }
+}
+
 for (let i=0; i<sizeOfArray; i++) {
   let variantOfNumber = prompt ("Введите число");
   if (variantOfNumber === null){
-    console.log('Нажата кнопка отмены ввода')
+    console.log('Нажата кнопка отмены ввода элемента массива')
     break;
+  }
+  else if (variantOfNumber === ''){
+    continue;
   }
   else if (isNaN(variantOfNumber)){
     continue;
@@ -24,14 +35,3 @@ function findMax(numArray) {
   }
 
 console.log(findMax(arr))
-
-
-// function findMax(array){
-//     let max = array[0];
-//     for(let i=1; i<array.length; i++){
-//       if(array[i] > max){
-//         max = array[i];   
-//       }
-//      }
-//    return max;
-//    }
