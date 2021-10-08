@@ -3,9 +3,13 @@ let arr = [];
 let sizeOfArray = prompt("Введите размер массива")
 
 for (let i=0; i<sizeOfArray; i++) {
-  let variantOfNumber = +prompt ("Введите число")
-  if (isNaN(variantOfNumber)){
-    i++;
+  let variantOfNumber = prompt ("Введите число");
+  if (variantOfNumber === null){
+    console.log('Нажата кнопка отмены ввода')
+    break;
+  }
+  else if (isNaN(variantOfNumber)){
+    continue;
   }
   else{
     arr.push(variantOfNumber);
